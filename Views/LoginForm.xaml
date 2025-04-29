@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="AulasSiencb2.Views.LoginForm"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:AulasSiencb2.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.RenderTransform>
+        <TranslateTransform x:Name="Transform"/>
+    </UserControl.RenderTransform>
+    <UserControl.InputBindings>
+        <KeyBinding Key="Enter" Command="{Binding LoginCommand}"/>
+    </UserControl.InputBindings>
+    <Border BorderThickness="2" BorderBrush="{DynamicResource PrimaryBrush}" CornerRadius="10" Padding="0">
+        <Grid Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row ="0" Background="{DynamicResource PrimaryBrush}" CornerRadius="10,10,0,0">
+                <Grid  Margin="0,0,0,10">
+                    <Label HorizontalAlignment="Center"
+VerticalAlignment="Center"
+Foreground="White"
+FontSize="30">Registro Usuario@</Label>
+                </Grid>
+            </Border>
+            <Grid Grid.Row ="1" Margin="5,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="20">Boleta / N° Empleado</Label>
+                <TextBox Grid.Row="1" Text ="{Binding UserNumber, UpdateSourceTrigger=PropertyChanged}" Loaded="FocusNumberUser" Name="_idUserNumber" FontSize="28" Padding="0" MaxLength="15" Height="50" CharacterCasing="Upper" Width="350" TextAlignment="Center"/>
+            </Grid>
+            <Grid Grid.Row ="2" Margin="5,10">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" FontSize="20">CURP</Label>
+                <TextBox Text="{Binding CURP, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Name="_curp" FontSize="28" Padding="0" MaxLength="18" Height="50" CharacterCasing="Upper" Width="350" TextAlignment="Center"/>
+                <TextBlock Grid.Row="2" Name="_mensaje" TextAlignment="Center" Text="{Binding Message}" Foreground="{DynamicResource PrimaryBrush}" TextWrapping="Wrap" MaxWidth="350"/>
+            </Grid>
+            <Grid Grid.Row ="3" Margin="0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding LoginCommand}">Aceptar</Button>
+                <Button Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CleanLoginCommand}">Limpiar</Button>
+            </Grid>
+
+        </Grid>
+    </Border>
+</UserControl>

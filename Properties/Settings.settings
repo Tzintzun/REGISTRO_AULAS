@@ -1,0 +1,31 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="AulasSiencb2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="PasswordAdmin" Type="System.String" Scope="User">
+      <Value Profile="(Default)">9F-32-60-80-2C-2E-A3-1C-2F-81-4B-24-2B-64-52-EA-B7-75-31-90-12-8D-1F-EE-69-51-5A-B6-42-EB-FF-36</Value>
+    </Setting>
+    <Setting Name="GetUserQuery" Type="System.String" Scope="User">
+      <Value Profile="(Default)">SELECT USUARIO_NOMBRE FROM localUsers WHERE USUARIO_NUMERO = @userNumber and USUARIO_CURP = @userCurp ;</Value>
+    </Setting>
+    <Setting Name="InsertUserQuery" Type="System.String" Scope="User">
+      <Value Profile="(Default)">INSERT INTO localUsers (USUARIO_NUMERO,USUARIO_CURP,USUARIO_NOMBRE) VALUES (@userNumber, @userCurp, @name);</Value>
+    </Setting>
+    <Setting Name="UrlServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.siencb.ipn.mx:5050/</Value>
+    </Setting>
+    <Setting Name="ftpServer" Type="System.String" Scope="User">
+      <Value Profile="(Default)">148.204.160.101</Value>
+    </Setting>
+    <Setting Name="UsePC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">{"servicios":[{"PK_SERVICIO":4,"NOMBRE_SERVICIO":"ABIERTO"},{"PK_SERVICIO":1,"NOMBRE_SERVICIO":"CLASE"},{"PK_SERVICIO":3,"NOMBRE_SERVICIO":"DIGITALIZACIÓN"},{"PK_SERVICIO":2,"NOMBRE_SERVICIO":"IMPRESIÓN"}],"paqueteria":[{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":2,"NOMBRE_PROGRAMA":"Adobe Dreamweaver CS6"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":3,"NOMBRE_PROGRAMA":"Adobe Ilustrator CS6"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":4,"NOMBRE_PROGRAMA":"Adobe Photoshop CS6"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":15,"NOMBRE_PROGRAMA":"Chrome"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":5,"NOMBRE_PROGRAMA":"CoreDRAW X7"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":14,"NOMBRE_PROGRAMA":"Firefox"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":13,"NOMBRE_PROGRAMA":"Internet Explorer"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":9,"NOMBRE_PROGRAMA":"Microsoft Access 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":7,"NOMBRE_PROGRAMA":"Microsoft Excel 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":8,"NOMBRE_PROGRAMA":"Microsoft PowerPoint 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":11,"NOMBRE_PROGRAMA":"Microsoft Project 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":10,"NOMBRE_PROGRAMA":"Microsoft Publisher 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":12,"NOMBRE_PROGRAMA":"Microsoft Visio 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":6,"NOMBRE_PROGRAMA":"Microsoft Word 2019"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":16,"NOMBRE_PROGRAMA":"Opera"},{"PK_EQUIPO":30,"NOMBRE_EQUIPO":"EQUIPO 205","PK_PROGRAMA":20,"NOMBRE_PROGRAMA":"Redes sociales"}]}
+</Value>
+    </Setting>
+    <Setting Name="UrlServerPhotos" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://148.204.161.28/api/miembros/foto/get/</Value>
+    </Setting>
+    <Setting Name="ServicesUDI" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

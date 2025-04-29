@@ -1,0 +1,153 @@
+﻿<Window x:Class="AulasSiencb2.Views.ScreenLock"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AulasSiencb2.Views"
+        xmlns:vm="clr-namespace:AulasSiencb2.ViewModel"
+        mc:Ignorable="d"
+        Title="Pantalla de bloqueo" Height="450" Width="800"
+        Closing="OnClosign"
+        Loaded="Window_Loaded"
+        Icon="pack://application:,,,/Assets/imgs/favicon.ico">
+    <Window.Resources>
+        <DataTemplate DataType="{x:Type vm:LoginFormViewModel}">
+            <local:LoginForm/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:InputPasswordViewModel}">
+            <local:InputPassword/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:LoadingViewViewModel}">
+            <local:LoadingView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type vm:UserInfoViewModel}">
+            <local:UserInfo/>
+        </DataTemplate>
+        <FontFamily x:Key="RobotoRegular">pack://application:,,,/Assets/#Roboto</FontFamily>
+                <!-- Colores personalizados -->
+                <SolidColorBrush x:Key="PrimaryBrush" Color="#6c1d45" />
+                <SolidColorBrush x:Key="SecondaryBrush" Color="#dedbd5" />
+                <SolidColorBrush x:Key="HoverBrush" Color="#8c2a5b " />
+                <SolidColorBrush x:Key="ActiveBush" Color="#531535 " />
+                <SolidColorBrush x:Key="AccentBrush" Color="#000000" />
+                <!-- Negro -->
+
+                <!-- Estilo para botones -->
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="{StaticResource PrimaryBrush}" />
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Margin" Value="5" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border CornerRadius="5" Padding="10" Background="{TemplateBinding Background}" >
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    </ContentPresenter>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Animación de color cuando el botón es presionado -->
+                                    <EventTrigger RoutedEvent="Button.Click">
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetProperty="(Border.Background).(SolidColorBrush.Color)" 
+                                    To="#531535" Duration="0:0:0.2" AutoReverse="True" />
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </EventTrigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource HoverBrush}"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+                <!-- Estilos Inputext-->
+                <Style TargetType="TextBox">
+                    <!-- Propiedades iniciales -->
+                    <Setter Property="Foreground" Value="Black" />
+                    <Setter Property="Background" Value="White" />
+                    <Setter Property="BorderBrush" Value="#B2B2B2"/>
+                    <Setter Property="BorderThickness" Value="2" />
+                    <Setter Property="Padding" Value="10" />
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TextBox">
+                                <Border CornerRadius="10" 
+        BorderBrush="{TemplateBinding BorderBrush}" 
+        BorderThickness="{TemplateBinding BorderThickness}" 
+        Background="{TemplateBinding Background}">
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <!-- Activar animación cuando el TextBox obtiene el foco -->
+                                    <Trigger Property="IsFocused" Value="True">
+                                        <Trigger.EnterActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <!-- Animar el color del borde al rojo -->
+                                                    <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                    To="#531535" Duration="0:0:0.3" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.EnterActions>
+                                        <Trigger.ExitActions>
+                                            <BeginStoryboard>
+                                                <Storyboard>
+                                                    <!-- Animar el color del borde de vuelta al blanco -->
+                                                    <ColorAnimation Storyboard.TargetProperty="(Border.BorderBrush).(SolidColorBrush.Color)"
+                                    To="#B2B2B2" Duration="0:0:0.3" />
+                                                </Storyboard>
+                                            </BeginStoryboard>
+                                        </Trigger.ExitActions>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="Label">
+                    <Setter Property="Foreground" Value="{StaticResource AccentBrush}"/>
+                </Style>
+                <!-- Estilo para textos -->
+
+
+                <!-- Estilo para la ventana -->
+                <Style TargetType="Window">
+                    <Setter Property="Background" Value="{StaticResource SecondaryBrush}" />
+
+                    <Setter Property="FontFamily" Value="{StaticResource RobotoRegular}"/>
+                </Style>
+
+
+            
+    </Window.Resources>
+    
+    <Window.Background>
+        <ImageBrush ImageSource="../Assets/imgs/bgMural.jpg" Stretch="UniformToFill"/>
+    </Window.Background>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90*"/>
+                <RowDefinition Height="8*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <ContentControl  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0" x:Name="_onView" Content="{Binding UserControl}"/>
+
+            </Grid>
+            <Grid Grid.Row="1" Background="Transparent">
+                <Grid.InputBindings>
+                    <MouseBinding Gesture="LeftClick" Command="{Binding ShowInputPasswordCommand}"/>
+                </Grid.InputBindings>
+                <Button HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0"  Command="{Binding ShowInputPasswordCommand}">Cerrar</Button>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Window>

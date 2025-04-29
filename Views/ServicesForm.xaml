@@ -1,0 +1,103 @@
+﻿<UserControl x:Class="AulasSiencb2.Views.ServicesForm"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AulasSiencb2.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid Width="800" Height="500">
+        <Grid.RowDefinitions>
+            <RowDefinition  Height="10*"/>
+            <RowDefinition  Height="30*"/>
+            <RowDefinition  Height="10*"/>
+            <RowDefinition  Height="40*"/>
+            <RowDefinition  Height="10*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Background="{DynamicResource PrimaryBrush}">
+            <TextBlock Text="Servicios"  HorizontalAlignment="Center"  VerticalAlignment="Center"  FontSize="18" FontWeight="Bold" FontFamily="{StaticResource RobotoRegular}" Foreground="{DynamicResource SecondaryBrush}"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" FontSize="16" >Avisos:</Label>
+            <TextBlock Grid.Row="1" FontSize="16" TextWrapping="Wrap" Background="{DynamicResource SecondaryBrush}" Margin="20" Padding="10" Height="200" Text="Para recargar saldo a tu cuenta, consulta al personal de la UDI."/>
+        </Grid>
+        <TextBlock Grid.Row="2"  VerticalAlignment="Center" Margin="10">
+            Tu saldo actual es de: <TextBlock  Text="{Binding Balance}"/>$
+        </TextBlock>
+        <Grid Grid.Row="3" Background="Transparent" Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" FontSize="16" HorizontalAlignment="Center">Concepto</Label>
+                <Label Grid.Column="1" FontSize="16" HorizontalAlignment="Center">Precio Unitario</Label>
+                <Label Grid.Column="2" FontSize="16" HorizontalAlignment="Center">Cantidad</Label>
+                <Label Grid.Column="3" FontSize="16" HorizontalAlignment="Center">Total</Label>
+                <Label Grid.Column="4" FontSize="16" HorizontalAlignment="Center">Accion</Label>
+                
+            </Grid>
+            <Grid Grid.Row="1" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="Services" FontSize="16" Grid.Column="0" IsChecked="{Binding IsCheckColor}">
+                    <TextBlock Text="{Binding ConceptColor}" TextWrapping="Wrap"/>
+                </RadioButton>
+                <TextBlock Grid.Column="1" FontSize="16" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding CostColor}" TextWrapping="Wrap"/>$
+                </TextBlock>
+                <xctk:IntegerUpDown FontSize="16" VerticalAlignment="Center" Grid.Column="2" Value="{Binding CountColor}" Minimum="0" Maximum="100" IsEnabled="False"/>
+                <TextBlock Grid.Column="3" FontSize="16" HorizontalAlignment="Center">
+                    <TextBlock Text="{Binding CostTotal}" TextWrapping="Wrap"/>$
+                </TextBlock>
+                <Button Grid.Column="4" HorizontalAlignment="Center" Command="{Binding CalculatePriceColorCommand}" Content="Examinar..." Height="35"/>
+            </Grid>
+            <Grid Grid.Row="2" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="Services" Grid.Column="0" IsChecked="{Binding IsCheckBW}">
+                    <TextBlock FontSize="16" Text="{Binding ConceptBW}" TextWrapping="Wrap"/>
+                </RadioButton>
+                <TextBlock Grid.Column="1" FontSize="16" HorizontalAlignment="Center" >
+                    <TextBlock Text="{Binding CostBW}" TextWrapping="Wrap"/>$
+                </TextBlock>
+                <xctk:IntegerUpDown FontSize="16" VerticalAlignment="Center" Grid.Column="2" Value="{Binding CountBW}" Minimum="0" ></xctk:IntegerUpDown>
+                <TextBlock Grid.Column="3" FontSize="16" HorizontalAlignment="Center" >
+                    <TextBlock Text="{Binding CostTotalBW}" TextWrapping="Wrap"/>$
+                </TextBlock>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Content="Recargar Servicio" HorizontalAlignment="Center" VerticalAlignment="Center"  Command="{Binding RequestServiceCommand}" />
+            <Button Grid.Column="1" Content="Cancelar" HorizontalAlignment="Center" VerticalAlignment="Center" Command="{Binding CloseWindowCommand}" />
+        </Grid>
+    </Grid>
+</UserControl>
